@@ -13,8 +13,8 @@ class Accelerometer
 public:
     Accelerometer();
     ~Accelerometer();
-    float* getAcceleration();
-    int16_t* getRawValues(); 
+    virtual float* getAcceleration();
+    virtual int16_t* getRawValues(); 
 protected:
     float m_accel[3];
     float m_offsets[3];

@@ -1,0 +1,6 @@
+set (libname "i2c")
+set (libdescription "libupm i2c base library")
+include_directories (${PROJECT_SOURCE_DIR}/include)
+set (module_src ${libname}.cxx)
+set (module_h ${libname}.h)
+#upm_module_init()

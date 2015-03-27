@@ -1,3 +1,8 @@
+set (Accelerometer_src ${PROJECT_SOURCE_DIR}/src/accelerometer/accelerometer.cxx)
+set (Accelerometer_inc ${PROJECT_SOURCE_DIR}/include/accelerometer.h)
+set (I2C_src ${PROJECT_SOURCE_DIR}/src/i2c/i2c.cxx)
+set (I2C_inc ${PROJECT_SOURCE_DIR}/include/i2c.h)
+
 macro(subdirlist result curdir)
   file(GLOB children RELATIVE ${curdir} ${curdir}/*)
   set(dirlist "")

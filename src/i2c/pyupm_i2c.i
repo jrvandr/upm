@@ -1,11 +1,7 @@
-%module jsupm_adxl345jv
+%module pyupm_i2c
 %include "../upm.i"
 %include "../carrays_int16_t.i"
 %include "../carrays_float.i"
-
-%{
-    #include "adxl345jv.h"
-%}
 
 %typemap(out) int16_t * {
     $result = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_int16Array, 0 | 0 );
@@ -15,6 +11,13 @@
     $result = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_floatArray, 0 | 0 );
 }
 
-%include "adxl345jv.h"
+%feature("autodoc", "3");
 
-%include <carrays.i>
+#ifdef DOXYGEN
+%include "i2c_doc.i"
+#endif
+
+%include "../../include/i2c.h"
+%{
+    #include "../../include/i2c.h"
+%}

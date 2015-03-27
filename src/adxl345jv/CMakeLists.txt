@@ -1,5 +1,0 @@
-set (libname "adxl345jv")
-set (libdescription "libupm Digital Accelerometer jv")
-set (module_src accelerometer.cxx i2c.cxx ${libname}.cxx)
-set (module_h accelerometer.h i2c.h ${libname}.h)
-upm_module_init()
