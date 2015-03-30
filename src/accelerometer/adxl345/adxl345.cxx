@@ -25,7 +25,7 @@
 #include <iostream>
 #include <unistd.h>
 #include "math.h"
-#include "adxl345jv.h"
+#include "adxl345.h"
 
 #define READ_BUFFER_LENGTH 6
 
@@ -85,7 +85,7 @@
 
 using namespace upm;
 
-Adxl345jv::Adxl345jv(int bus) : m_i2c_conn(bus, ADXL345_I2C_ADDR)
+Adxl345::Adxl345(int bus) : m_i2c_conn(bus, ADXL345_I2C_ADDR)
 {
     //init bus and reset chip
 ////    m_i2c = mraa_i2c_init(bus);
@@ -109,10 +109,10 @@ Adxl345jv::Adxl345jv(int bus) : m_i2c_conn(bus, ADXL345_I2C_ADDR)
     m_offsets[1] = 0.003773584;
     m_offsets[2] = 0.00390625;
 
-    Adxl345jv::update();
+    Adxl345::update();
 }
 
-Adxl345jv::~Adxl345jv()
+Adxl345::~Adxl345()
 {
 ////    mraa_i2c_stop(m_i2c);
 }
@@ -133,7 +133,7 @@ Adxl345jv::~Adxl345jv()
 ////}
 
 uint8_t
-Adxl345jv::getScale(){
+Adxl345::getScale(){
 
     uint8_t result;
 
@@ -149,7 +149,7 @@ Adxl345jv::getScale(){
 }
 
 mraa_result_t
-Adxl345jv::update(void)
+Adxl345::update(void)
 {
     uint8_t* ptrBuf = m_buffer;
 ////    mraa_i2c_address(m_i2c, ADXL345_I2C_ADDR);

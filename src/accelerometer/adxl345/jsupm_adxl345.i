@@ -1,10 +1,10 @@
-%module jsupm_adxl345jv
+%module jsupm_adxl345
 %include "upm.i"
 %include "carrays_int16_t.i"
 %include "carrays_float.i"
 
 %{
-    #include "adxl345jv.h"
+    #include "adxl345.h"
 %}
 
 %typemap(out) int16_t * {
@@ -17,6 +17,6 @@
 
 %include "i2c.h"
 %include "accelerometer.h"
-%include "adxl345jv.h"
+%include "adxl345.h"
 
 %include <carrays.i>

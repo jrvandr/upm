@@ -56,19 +56,19 @@ namespace upm {
  * @image html adxl345.jpeg
  * @snippet adxl345.cxx Interesting
  */
-class Adxl345jv : public Accelerometer {
+class Adxl345 : public Accelerometer {
 public:
     /**
      * Creates an Adxl345 object
      *
      * @param bus number of used i2c bus
      */
-    Adxl345jv(int bus);
+    Adxl345(int bus);
 
     /**
      * Adxl345 object destructor
      */
-    ~Adxl345jv();
+    ~Adxl345();
 
     /**
      * Returns a pointer to a float[3] that contains acceleration (g) forces
