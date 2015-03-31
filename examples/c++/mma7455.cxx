@@ -45,7 +45,8 @@ int
 main(int argc, char **argv)
 {
     //! [Interesting]
-    sensor = new upm::MMA7455(0, ADDR);
+    //sensor = new upm::MMA7455(0, ADDR);
+    sensor = new upm::MMA7455(0);
     
     short x, y, z;
     while (!doWork) {
