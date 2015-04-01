@@ -24,8 +24,10 @@
 #pragma once
 
 #include <string>
-#include <mraa/i2c.h>
+//#include <mraa/i2c.h>
+#include "i2c.h"
 #include <mraa/gpio.h>
+#include "accelerometer.h"
 
 #define MMA7660_I2C_BUS 0
 #define MMA7660_DEFAULT_I2C_ADDR 0x4c
@@ -48,7 +50,7 @@ namespace upm {
    * @defgroup mma7660 libupm-mma7660
    * @snippet mma7660.cxx Interesting
    */
-  class MMA7660 {
+  class MMA7660 : public Accelerometer {
   public:
 
     // MMA7660 registers
@@ -128,6 +130,13 @@ namespace upm {
     ~MMA7660();
 
     /**
+     * Returns the device id
+     *
+     * @return uint8_t
+     */
+//    uint8_t getDeviceID (){};
+
+    /**
      * Write byte value into register
      *
      * @param reg register location to write into
@@ -151,7 +160,7 @@ namespace upm {
      * @param y returned y value
      * @param z returned z value
      */
-    void getRawValues(int *x, int *y, int *z);
+//    void getRawValues(int *x, int *y, int *z);
 
     /**
      * Get the computed acceleration
@@ -160,7 +169,7 @@ namespace upm {
      * @param ay returned computed acceleration of Y axis
      * @param az returned computed acceleration of Z axis
      */
-    void getAcceleration(float *ax, float *ay, float *az);
+//    void getAcceleration(float *ax, float *ay, float *az);
 
     /**
      * Read an axis, verifying it's validity.  The value passed must

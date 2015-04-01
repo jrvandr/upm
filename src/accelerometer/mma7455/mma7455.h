@@ -183,6 +183,13 @@ class MMA7455 : public Accelerometer {
         ~MMA7455 ();
 
         /**
+         * Returns the device id
+         *
+         * @return uint8_t
+         */
+//        uint8_t getDeviceID (){};
+
+        /**
          * Return name of the component
          */
         std::string get_name()

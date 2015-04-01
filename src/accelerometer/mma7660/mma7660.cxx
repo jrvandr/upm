@@ -81,12 +81,12 @@ uint8_t MMA7660::readByte(uint8_t reg)
   return mraa_i2c_read_byte_data(m_i2c, reg);
 }
 
-void MMA7660::getRawValues(int *x, int *y, int *z)
-{
-  *x = getVerifiedAxis(REG_XOUT);
-  *y = getVerifiedAxis(REG_YOUT);
-  *z = getVerifiedAxis(REG_ZOUT);
-}
+//void MMA7660::getRawValues(int *x, int *y, int *z)
+//{
+//  *x = getVerifiedAxis(REG_XOUT);
+//  *y = getVerifiedAxis(REG_YOUT);
+//  *z = getVerifiedAxis(REG_ZOUT);
+//}
 
 void MMA7660::setModeActive()
 {
@@ -234,16 +234,16 @@ bool MMA7660::setSampleRate(MMA7660_AUTOSLEEP_T sr)
   return writeByte(REG_SR, sr);
 }
 
-void MMA7660::getAcceleration(float *ax, float *ay, float *az)
-{
-  int x, y, z;
-
-  getRawValues(&x, &y, &z);
+//void MMA7660::getAcceleration(float *ax, float *ay, float *az)
+//{
+//  int x, y, z;
+//
+//  getRawValues(&x, &y, &z);
 
   // 21.33, typical counts/g
 
-  *ax = x/21.33;
-  *ay = y/21.33;
-  *az = z/21.33;
-}
+//  *ax = x/21.33;
+//  *ay = y/21.33;
+//  *az = z/21.33;
+//}
 

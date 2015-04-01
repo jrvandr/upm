@@ -56,24 +56,37 @@ int main(int argc, char **argv)
   // place device into active mode
   accel->setModeActive();
 
+  int16_t *raw;
+  float *acc;
+
   while (shouldRun)
     {
-      int x, y, z;
+      //int x, y, z;
       
-      accel->getRawValues(&x, &y, &z);
-      cout << "Raw values: x = " << x 
-           << " y = " << y
-           << " z = " << z
+      //accel->getRawValues(&x, &y, &z);
+      //cout << "Raw values: x = " << x 
+      //     << " y = " << y
+      //     << " z = " << z
+      //     << endl;
+      raw = accel->getRawAccelValues();
+      cout << "Raw values: x = " << raw[0] 
+           << " y = " << raw[1] 
+           << " z = " << raw[2] 
            << endl;
+
+      //float ax, ay, az;
       
-      float ax, ay, az;
-      
-      accel->getAcceleration(&ax, &ay, &az);
-      cout << "Acceleration: x = " << ax 
-           << "g y = " << ay
-           << "g z = " << az
+      //accel->getAcceleration(&ax, &ay, &az);
+      //cout << "Acceleration: x = " << ax 
+      //     << "g y = " << ay
+      //     << "g z = " << az
+      //     << "g" << endl;
+     
+      acc = accel->getAcceleration(); 
+      cout << "Acceleration: x = " << acc[0] 
+           << "g y = " << acc[1] 
+           << "g z = " << acc[2] 
            << "g" << endl;
-      
       usleep(500000);
     }
 

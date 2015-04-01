@@ -2,16 +2,6 @@
 
 using namespace upm;
 
-Accelerometer::Accelerometer()
-{
-    
-}
-
-Accelerometer::~Accelerometer()
-{
-
-}
-
 float* Accelerometer::getAcceleration()
 {
     for(int i = 0; i < 3; i++){
@@ -22,7 +12,7 @@ float* Accelerometer::getAcceleration()
 }
 
 
-int16_t* Accelerometer::getRawValues()
+int16_t* Accelerometer::getRawAccelValues()
 {
     return &m_rawaccel[0];
 }
