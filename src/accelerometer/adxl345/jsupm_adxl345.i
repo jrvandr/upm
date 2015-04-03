@@ -3,6 +3,8 @@
 %include "carrays_int16_t.i"
 %include "carrays_float.i"
 
+%nodefaultctor upm::Accelerometer;
+
 %{
     #include "adxl345.h"
 %}
@@ -15,6 +17,7 @@
     $result = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_floatArray, 0 | 0 );
 }
 
+%include "sensor.h"
 %include "i2c.h"
 %include "accelerometer.h"
 %include "adxl345.h"

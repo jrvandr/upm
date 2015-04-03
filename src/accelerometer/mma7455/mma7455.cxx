@@ -121,6 +121,12 @@ MMA7455::calibrate () {
 }
 
 mraa_result_t
+MMA7455::update(void)
+{
+    //Get data from sensor
+}
+
+mraa_result_t
 MMA7455::readData (short * ptrX, short * ptrY, short * ptrZ) {
     accelData xyz;
     uint8_t* pData = (uint8_t*)&xyz;

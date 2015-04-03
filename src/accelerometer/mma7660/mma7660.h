@@ -130,11 +130,9 @@ namespace upm {
     ~MMA7660();
 
     /**
-     * Returns the device id
-     *
-     * @return uint8_t
+     * Get data from sensor
      */
-//    uint8_t getDeviceID (){};
+    mraa_result_t update(void);
 
     /**
      * Write byte value into register

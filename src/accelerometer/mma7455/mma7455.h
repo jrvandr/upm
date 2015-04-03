@@ -182,12 +182,10 @@ class MMA7455 : public Accelerometer {
          */
         ~MMA7455 ();
 
-        /**
-         * Returns the device id
-         *
-         * @return uint8_t
+       /**
+         * Get data from sensor
          */
-//        uint8_t getDeviceID (){};
+        mraa_result_t update(void);
 
         /**
          * Return name of the component

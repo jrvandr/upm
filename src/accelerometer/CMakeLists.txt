@@ -2,7 +2,7 @@
 # Do not need any of this unless we're building a library for Accelerometer class
 #set (libname "accelerometer")
 #set (libdescription "libupm accelerometer base library")
-#include_directories (${PROJECT_SOURCE_DIR}/include)
+include_directories (${PROJECT_SOURCE_DIR}/include)
 #set (module_src ${libname}.cxx)
 #set (module_h ${libname}.h)
 

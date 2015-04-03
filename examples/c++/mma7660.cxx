@@ -62,7 +62,7 @@ int main(int argc, char **argv)
   while (shouldRun)
     {
       //int x, y, z;
-      
+      accel->update(); //Update the sensor data
       //accel->getRawValues(&x, &y, &z);
       //cout << "Raw values: x = " << x 
       //     << " y = " << y

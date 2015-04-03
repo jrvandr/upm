@@ -81,6 +81,27 @@ uint8_t MMA7660::readByte(uint8_t reg)
   return mraa_i2c_read_byte_data(m_i2c, reg);
 }
 
+mraa_result_t MMA7660::update(void)
+{
+    //Get data from sensor
+//    uint8_t* ptrBuf = m_buffer;
+
+//    m_i2c_conn.i2c_write_byte(ADXL345_XOUT_L);
+//    m_i2c_conn.i2c_read(&ptrBuf, DATA_REG_SIZE);
+
+//    *x = getVerifiedAxis(REG_XOUT);
+//    *y = getVerifiedAxis(REG_YOUT);
+//    *z = getVerifiedAxis(REG_ZOUT);
+
+    // x
+    //m_rawaccel[0] = ((m_buffer[1] << 8 ) | m_buffer[0]);
+    // y
+    //m_rawaccel[1] = ((m_buffer[3] << 8 ) | m_buffer[2]);
+    // z
+    //m_rawaccel[2] = ((m_buffer[5] << 8 ) | m_buffer[4]);
+
+}
+
 //void MMA7660::getRawValues(int *x, int *y, int *z)
 //{
 //  *x = getVerifiedAxis(REG_XOUT);
