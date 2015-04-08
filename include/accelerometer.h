@@ -6,18 +6,19 @@
 #include <sys/types.h>
 #include <stdint.h>
 #include <mraa/common.h>
-#include "sensor.h"
+//#include "sensor.h"
 
 namespace upm
 {
 
-class Accelerometer : public virtual Sensor
+//class Accelerometer : public virtual Sensor
+class Accelerometer
 {
 public:
-    using Sensor::update;
+//    using Sensor::update;
     Accelerometer(){};
     virtual ~Accelerometer(){};
-    //virtual mraa_result_t update() = 0; //Get data from sensor: Pure virtual - Each derived class must implement
+    virtual mraa_result_t update(){};// = 0; //Get data from sensor: Pure virtual - Each derived class must implement
     virtual mraa_result_t calibrate(){}; //Calibrate the device
     virtual float* getAcceleration(); //Get the acceleration values
     virtual int16_t* getRawAccelValues(); //Get the raw acceleration values

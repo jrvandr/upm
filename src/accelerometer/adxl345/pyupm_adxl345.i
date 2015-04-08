@@ -19,11 +19,6 @@
 %include "adxl345_doc.i"
 #endif
 
-%include "sensor.h"
-%{
-    #include "sensor.h"
-%}
-
 %include "i2c.h"
 %{
     #include "i2c.h"
