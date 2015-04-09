@@ -30,7 +30,7 @@ adxl = adxl345.Adxl345(0)
 while True:
 
     adxl.update() # Update the data
-    raw = adxl.getRawValues() # Read raw sensor data
+    raw = adxl.getRawAccelValues() # Read raw sensor data
     force = adxl.getAcceleration() # Read acceleration force (g)
     print "Raw: %6d %6d %6d" % (raw[0], raw[1], raw[2])
     print "ForceX: %5.2f g" % (force[0])

@@ -31,7 +31,7 @@ var adxl = new adxl345.Adxl345(0);
 setInterval(function()
 {
     adxl.update(); // Update the data
-    var raw = adxl.getRawValues(); // Read raw sensor data
+    var raw = adxl.getRawAccelValues(); // Read raw sensor data
     var force = adxl.getAcceleration(); // Read acceleration force (g)
     var rawvalues = raw.getitem(0) + " " + raw.getitem(1) + " " + raw.getitem(2);
     console.log("Raw Values: " + rawvalues);
