@@ -1,0 +1,7 @@
+set (libname "th02")
+set (libdescription "Temperature and Humidity Sensor Pro")
+INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/src)
+INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/include)
+set (module_src ${Temperature_src} ${Humidity_src} ${libname}.cxx)
+set (module_h ${Temperature_inc} ${Humidity_src} ${libname}.h)
+upm_module_init()

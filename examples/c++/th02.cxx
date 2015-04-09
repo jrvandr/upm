@@ -46,11 +46,13 @@ main(int argc, char **argv)
     //! [Interesting]
     float temperature = 0.0;
     float humidity = 0.0;
-    sensor = new upm::TH02 ();
-
+    sensor = new upm::TH02 (0);
+    std::cout << "sizeof(short int): " << sizeof(short int) << std::endl;
+    std::cout << "sizeof(unsigned short int): " << sizeof(unsigned short int) << std::endl;
     while (!doWork) {
+        sensor->update(); //Get data from sensor
         temperature = sensor->getTemperature ();
-        // humidity = sensor->getHumidity ();
+        humidity = sensor->getHumidity ();
         std::cout << "Temperature = " << temperature << ", Humidity = " << humidity << std::endl;
         usleep (500000);
     }

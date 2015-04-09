@@ -26,7 +26,10 @@
 #pragma once
 
 #include <string>
-#include <mraa/i2c.h>
+//#include <mraa/i2c.h>
+#include <mraa/i2c.hpp>
+#include "temperature.h"
+#include "humidity.h"
 
 #define ADDR                0x40 // device address
 
@@ -72,27 +75,32 @@ namespace upm {
  *
  * @snippet th02.cxx Interesting
  */
-class TH02 {
+class TH02 : public Temperature, public Humidity {
     public:
         /**
          * Instanciates a TH02 object
          */
-        TH02 ();
+        TH02 (int bus);
 
         /**
          * TH02 object destructor, basicaly it close i2c connection.
          */
         ~TH02 ();
 
+        /*
+         * Get sensor data
+         */
+        mraa_result_t update();
+
         /**
          * Get the temperature value from sensor.
          */
-        float getTemperature ();
+//        float getTemperature ();
 
         /**
          * Get the humidity value from sensor.
          */
-        float getHumidity ();
+//        float getHumidity ();
 
         /**
          * Get the sensor's status.
@@ -108,11 +116,12 @@ class TH02 {
         }
     private:
         std::string m_name;
-        mraa_i2c_context m_i2Ctx;
+//        mraa_i2c_context m_i2Ctx;
+        mraa::I2c m_i2c_conn;
 
-        uint16_t i2cReadReg_N (int reg, unsigned int len, uint8_t * buffer);
-        mraa_result_t i2cWriteReg_N (uint8_t reg, unsigned int len, uint8_t * buffer);
-        mraa_result_t i2cWriteReg (uint8_t reg, uint8_t data);
+//        uint16_t i2cReadReg_N (int reg, unsigned int len, uint8_t * buffer);
+//        mraa_result_t i2cWriteReg_N (uint8_t reg, unsigned int len, uint8_t * buffer);
+//        mraa_result_t i2cWriteReg (uint8_t reg, uint8_t data);
 };
 
 }

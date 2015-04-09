@@ -1,5 +1,9 @@
 set (Accelerometer_src ${PROJECT_SOURCE_DIR}/src/accelerometer/accelerometer.cxx)
 set (Accelerometer_inc ${PROJECT_SOURCE_DIR}/include/accelerometer.h)
+set (Temperature_src ${PROJECT_SOURCE_DIR}/src/temperature_humidity/temperature.cxx)
+set (Temperature_inc ${PROJECT_SOURCE_DIR}/include/temperature.h)
+set (Humidity_src ${PROJECT_SOURCE_DIR}/src/temperature_humidity/humidity.cxx)
+set (Humidity_inc ${PROJECT_SOURCE_DIR}/include/humidity.h)
 set (I2C_src ${PROJECT_SOURCE_DIR}/src/i2c/i2c.cxx)
 set (I2C_inc ${PROJECT_SOURCE_DIR}/include/i2c.h)
 
