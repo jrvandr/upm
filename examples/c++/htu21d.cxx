@@ -58,8 +58,11 @@ main(int argc, char **argv)
 
     while (!doWork) {
         compRH      = sensor->getCompRH(true);
-        humidity    = sensor->getHumidity(false);
-        temperature = sensor->getTemperature(false);
+        sensor->sampleData();
+//        humidity    = sensor->getHumidity(false);
+//        temperature = sensor->getTemperature(false);
+        humidity    = sensor->getHumidity();
+        temperature = sensor->getTemperature();
 
         std::cout << "humidity value = " <<
                     humidity <<

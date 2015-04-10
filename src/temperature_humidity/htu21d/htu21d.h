@@ -24,8 +24,10 @@
 #pragma once
 
 #include <string>
-#include <mraa/i2c.h>
+#include <mraa/i2c.hpp>
 #include <math.h>
+#include "temperature.h"
+#include "humidity.h"
 
 #define HTU21D_NAME "htu21d"
 #define HTU21D_I2C_ADDRESS 0x40
@@ -72,7 +74,7 @@ namespace upm {
  * @snippet htu21d.cxx Interesting
  * @image html htu21d.jpeg
  */
-class HTU21D {
+class HTU21D : public Temperature, public Humidity {
     public:
         /**
          * Instanciates a HTU21D object
@@ -96,14 +98,19 @@ class HTU21D {
         int sampleData(void);
 
         /**
+         * Get data from sensor
+         */
+        mraa_result_t update(){};
+
+        /**
          * Get the current measured humidity [RH]
          */
-        float getHumidity(int bSampleData = false);
+//        float getHumidity(int bSampleData = false);
 
         /**
          * Get the humidity cell temperature [degC]
          */
-        float getTemperature(int bSampleData = false);
+//        float getTemperature(int bSampleData = false);
 
         /**
          * Using the current humidity and temperature the function
@@ -142,21 +149,21 @@ class HTU21D {
          * @param reg address of a register
          * @param value byte to be written
          */
-        mraa_result_t i2cWriteReg (uint8_t reg, uint8_t value);
+//        mraa_result_t i2cWriteReg (uint8_t reg, uint8_t value);
 
         /**
          * Read two bytes register
          *
          * @param reg address of a register
          */
-        uint16_t i2cReadReg_16 (int reg);
+//        uint16_t i2cReadReg_16 (int reg);
 
         /**
          * Read one byte register
          *
          * @param reg address of a register
          */
-        uint8_t i2cReadReg_8 (int reg);
+//        uint8_t i2cReadReg_8 (int reg);
 
     private:
 
@@ -173,11 +180,12 @@ class HTU21D {
         std::string m_name;
 
         int m_controlAddr;
-        int m_bus;
-        mraa_i2c_context m_i2ControlCtx;
+//        int m_bus;
+//        mraa_i2c_context m_i2ControlCtx;
 
-        int32_t m_temperature;
-        int32_t m_humidity;
+//        int32_t m_temperature;
+//        int32_t m_humidity;
+        mraa::I2c m_i2c_conn;
 };
 
 }

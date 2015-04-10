@@ -16,7 +16,7 @@ class Temperature
 {
 public:
 //    using Sensor::update;
-    Temperature(){};
+    Temperature():m_temperature(0.0f){};
     virtual ~Temperature(){};
     virtual mraa_result_t update(){};// = 0; //Get data from sensor: Pure virtual - Each derived class must implement
     virtual float getTemperature(); //Get the acceleration values

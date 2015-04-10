@@ -16,7 +16,7 @@ class Humidity
 {
 public:
 //    using Sensor::update;
-    Humidity(){};
+    Humidity():m_humidity(0.0f){};
     virtual ~Humidity(){};
     virtual mraa_result_t update(){};// = 0; //Get data from sensor: Pure virtual - Each derived class must implement
     virtual float getHumidity(); //Get the acceleration values
