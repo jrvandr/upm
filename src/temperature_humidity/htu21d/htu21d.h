@@ -24,8 +24,9 @@
 #pragma once
 
 #include <string>
-#include <mraa/i2c.hpp>
+//#include <mraa/i2c.h>
 #include <math.h>
+#include "i2c.h"
 #include "temperature.h"
 #include "humidity.h"
 
@@ -105,12 +106,12 @@ class HTU21D : public Temperature, public Humidity {
         /**
          * Get the current measured humidity [RH]
          */
-//        float getHumidity(int bSampleData = false);
+////        float getHumidity(int bSampleData = false);
 
         /**
          * Get the humidity cell temperature [degC]
          */
-//        float getTemperature(int bSampleData = false);
+////        float getTemperature(int bSampleData = false);
 
         /**
          * Using the current humidity and temperature the function
@@ -149,21 +150,21 @@ class HTU21D : public Temperature, public Humidity {
          * @param reg address of a register
          * @param value byte to be written
          */
-//        mraa_result_t i2cWriteReg (uint8_t reg, uint8_t value);
+////        mraa_result_t i2cWriteReg (uint8_t reg, uint8_t value);
 
         /**
          * Read two bytes register
          *
          * @param reg address of a register
          */
-//        uint16_t i2cReadReg_16 (int reg);
+////        uint16_t i2cReadReg_16 (int reg);
 
         /**
          * Read one byte register
          *
          * @param reg address of a register
          */
-//        uint8_t i2cReadReg_8 (int reg);
+////        uint8_t i2cReadReg_8 (int reg);
 
     private:
 
@@ -180,12 +181,12 @@ class HTU21D : public Temperature, public Humidity {
         std::string m_name;
 
         int m_controlAddr;
-//        int m_bus;
-//        mraa_i2c_context m_i2ControlCtx;
+////        int m_bus;
+////        int32_t m_temperature;
+////        int32_t m_humidity;
 
-//        int32_t m_temperature;
-//        int32_t m_humidity;
-        mraa::I2c m_i2c_conn;
+//        mraa_i2c_context m_i2ControlCtx;
+        I2C m_i2c_conn;
 };
 
 }

@@ -57,7 +57,7 @@ MMA7455::MMA7455 (int bus) : m_i2c_conn(bus, ADDR) {
 ////    error = ic2WriteReg (MMA7455_MCTL, &data, 0x1);
     m_buffer[0] = MMA7455_MCTL;
     m_buffer[1] = (BIT (MMA7455_GLVL0) | BIT (MMA7455_MODE0)); 
-    result = m_i2c_conn.i2c_write(m_buffer, 2);
+    result = m_i2c_conn.write(m_buffer, 2);
     if (result != MRAA_SUCCESS) {
         std::cout << "ERROR :: MMA7455 instance wan not created (Mode)" << std::endl;
         return;
@@ -107,7 +107,7 @@ MMA7455::calibrate () {
 	//result = m_i2c_conn.write(m_buffer, accelDataSize + 1); 
         m_buffer[0] = MMA7455_XOFFL;
         memcpy(&m_buffer[1], (unsigned char *) &xyz, DATA_REG_SIZE);
-	result = m_i2c_conn.i2c_write(m_buffer, DATA_REG_SIZE + 1); 
+	result = m_i2c_conn.write(m_buffer, DATA_REG_SIZE + 1); 
         //if (error != MRAA_SUCCESS) {
         if (result != MRAA_SUCCESS) {
             //return error;
@@ -143,8 +143,8 @@ MMA7455::readData (short * ptrX, short * ptrY, short * ptrZ) {
     }*/
 
 ////    nBytes = ic2ReadReg (MMA7455_XOUTL, (unsigned char *) &xyz, 0x6);
-    m_i2c_conn.i2c_write_byte(MMA7455_XOUTL);
-    m_i2c_conn.i2c_read(&pData, DATA_REG_SIZE);
+    m_i2c_conn.writeByte(MMA7455_XOUTL);
+    m_i2c_conn.read(&pData, DATA_REG_SIZE);
 
     if (nBytes == 0) {
         std::cout << "NO_GDB :: 2" << std::endl;

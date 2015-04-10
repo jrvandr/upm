@@ -52,15 +52,13 @@ main(int argc, char **argv)
     float temperature = 0.0;
     float compRH      = 0.0;
 
-    sensor = new upm::HTU21D(0, HTU21D_I2C_ADDRESS);
+    sensor = new upm::HTU21D(1, HTU21D_I2C_ADDRESS);
 
     sensor->testSensor();
 
     while (!doWork) {
         compRH      = sensor->getCompRH(true);
-        sensor->sampleData();
-//        humidity    = sensor->getHumidity(false);
-//        temperature = sensor->getTemperature(false);
+        sensor->sampleData(); // +
         humidity    = sensor->getHumidity();
         temperature = sensor->getTemperature();
 

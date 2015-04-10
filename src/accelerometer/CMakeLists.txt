@@ -1,4 +1,3 @@
-
 # Do not need any of this unless we're building a library for Accelerometer class
 #set (libname "accelerometer")
 #set (libdescription "libupm accelerometer base library")
